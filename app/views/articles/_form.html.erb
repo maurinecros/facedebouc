@@ -1,0 +1,42 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :Titre, :class => "bold" %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+<br>
+
+  <div>
+    <%= form.label :"Nom d'utilisateur", :class => "bold" %><br>
+    <%= form.text_field :author %><br>
+    <% article.errors.full_messages_for(:author).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+<br>
+  <div>
+    <%= form.label :Contenu, :class => "bold" %><br>
+    <%= form.text_area :content %><br>
+    <% article.errors.full_messages_for(:content).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+<br>
+  
+  <div>
+    <%= form.label :"url de l'image", :class => "bold" %><br>
+    <%= form.text_area :image %><br>
+    <% article.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+<br>
+
+  <div class="new">
+    <%= form.submit %>
+  </div>
+<% end %>

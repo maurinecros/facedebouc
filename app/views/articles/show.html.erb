@@ -1,0 +1,29 @@
+<%= image_tag "goat.png" ,{:class => "goat" } %>
+<h1>Plus d'informations sur ce post</h1>
+
+
+<div class="container">
+  <div class="padding">
+    <div class="etable">
+        <%= image_tag "undo.svg" ,{:class => "btn_size" } %>
+        <%= link_to "Retour à l'étable", articles_path %>
+    </div>
+    <br>
+    <div class="user">
+      <%= image_tag "user.svg" %>
+      <p class="bold"><%= @article.author %></p>
+    </div>
+    <h2><%= @article.title %></h2>
+    <p><%= @article.content %></p>
+    <img class="image" src="<%= @article.image%>">
+  </div>
+  <div class="btn bold">
+    <div class="crud">
+      <a class="user"><%= image_tag "edit.svg" ,{:class => "btn_size" } %><%= link_to 'Modifier', edit_article_path(@article) %></a>
+    </div>
+    <div class="crud">
+      <a class="user"><%= image_tag "delete.svg" ,{:class => "btn_size" } %><%= link_to 'Supprimer', article_path(@article), method: :delete, data: { confirm: "Es-tu sûr(e) ?"} %></a>
+    </div>
+  </div>
+  <br>
+</div>

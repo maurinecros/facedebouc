@@ -1,0 +1,17 @@
+<%= image_tag "goat.png" ,{:class => "goat" } %>
+<h1>Écrire un nouveau post</h1>
+
+<div class="container">
+
+    <div class="padding">
+        <div class="crud user">
+            <%= image_tag "undo.svg" ,{:class => "btn_size" } %>
+            <%= link_to "Retour à l'étable", articles_path %>
+        </div>
+    </div>
+    
+    <div class="padding">
+        <%= render "form", article: @article %>
+    </div>
+
+</div>

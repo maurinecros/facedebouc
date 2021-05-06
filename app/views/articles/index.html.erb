@@ -1,0 +1,48 @@
+<%= image_tag "goat.png" ,{:class => "goat" } %>
+<h1>Bienvenue sur Face de Bouc !</h1>
+<br>
+<br>
+<%= link_to 'Mêêh, quoi de neuf ?', new_article_path, :class => "new bold" %>
+<br>
+<br>
+<br>
+<br>
+<table>
+  <tbody>
+    <div class="container">
+      <% @articles.each do |article| %>
+      <div class="post">
+        <br>
+        <div class="bloc">
+          <div class="user">
+            <%= image_tag "user.svg" %>
+            <p class="bold"><%= article.author %></p>
+          </div>
+          <h2><%= article.title %></h2>
+          <p><%= article.content %></p>
+          <img class="image" src="<%=(url_for(article.image))%>">
+      </div>
+      <br>
+      <br>
+      <div class="btn bold">
+        <div class="crud">
+          <a class="user"><%= image_tag "more.svg" ,{:class => "btn_size" } %><%= link_to 'En savoir plus', edit_article_path(article) %></a>
+        </div>
+        <div class="crud">
+          <a class="user"><%= image_tag "edit.svg" ,{:class => "btn_size" } %><%= link_to 'Modifier', edit_article_path(article) %></a>
+        </div>
+        <div class="crud">
+          <a class="user"><%= image_tag "delete.svg" ,{:class => "btn_size" } %><%= link_to 'Supprimer', article_path(article), method: :delete, data: { confirm: "Es-tu sûr(e) ?"} %></a>
+        </div>
+      </div>
+      <br>
+      <% end %>
+    </div>
+  </tbody>
+  <div class="container">
+    <p class="title_end">Il n'y a pas d'autres publications à afficher.</p>
+    <p class="txt_end">Poster pour voir davantage de publications dans votre fil d’actualité.</p>
+    <%= link_to 'Poster un bouc', new_article_path, :class => "new bold" %>
+    <br>
+  </div>
+</table>
